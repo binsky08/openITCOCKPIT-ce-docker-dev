@@ -190,7 +190,9 @@ services:
         condition: on-failure
 
   openitcockpit:
-    image: openitcockpit/openitcockpit-ce:latest                             # Community Edition of openITCOCKPIT
+    build:
+      dockerfile: oitc-dev-dockerfile
+    image: openitcockpit-ce-dev-custom:latest                                 # customized Community Edition of openITCOCKPIT with ssh
     init: true
     env_file:
      - openitcockpit.env

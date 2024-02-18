@@ -1,3 +1,15 @@
+# openITCOCKPIT-ce-docker customized DEV version
+This is a slightly customized developer version, with OITC_DEBUG and ssh enabled.
+
+It requires to have a file `id_ecdsa.pub` in the directory containing the compose.yml.
+
+That file will be used as `/root/.ssh/authorized_keys` file within the main container.
+
+You might have seen the `oitc-dev-dockerfile`. That will be used to customize the official container. Over this, the custom image is based on the nightly build of openitcockpit/openitcockpit-ce.
+
+Start the application with `docker compose up --build` instead. 
+
+
 # openITCOCKPIT-CE-docker
 
 This repository contains the necessary files to run openITCOCKPIT Community Edition as a container.

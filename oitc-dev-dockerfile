@@ -1,0 +1,13 @@
+FROM openitcockpit/openitcockpit-ce:nightly
+
+RUN echo "\n[program:sshd]\ncommand=/bin/sh -c \"service ssh start && tail -f /dev/null\"\n" >> /config_templates/supervisord.conf.tpl
+
+
+RUN mkdir /root/.ssh; \
+    chmod 0700 /root/.ssh
+
+COPY id_ecdsa.pub /root/.ssh/authorized_keys
+
+RUN chown root:root /root/.ssh/authorized_keys; \
+    chmod 0400 /root/.ssh/authorized_keys
+
